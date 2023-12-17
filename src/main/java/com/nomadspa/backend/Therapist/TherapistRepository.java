@@ -10,6 +10,5 @@ public interface TherapistRepository
         extends JpaRepository<Therapist,Long>{
     @Query("SELECT s FROM Therapist s WHERE s.phoneNumber = ?1")
     Optional<Therapist> findTherapistByPhoneNumber(String phoneNumber);
-
 }
 
