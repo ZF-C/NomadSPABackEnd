@@ -15,7 +15,7 @@ public class Therapist {
             allocationSize = 1
     )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = GenerationType.IDENTITY,
             generator = "therapist_sequence"
     )
     private Long id;

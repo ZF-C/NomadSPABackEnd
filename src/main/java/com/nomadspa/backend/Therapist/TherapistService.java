@@ -50,7 +50,7 @@ public class TherapistService {
         if(phoneNumber != null && !phoneNumber.isEmpty() && !Objects.equals(therapist.getPhoneNumber(),phoneNumber)){
             Optional<Therapist> studentOptional = TherapistRepository.findTherapistByPhoneNumber(phoneNumber);
             if(studentOptional.isPresent()){
-                throw new IllegalStateException("email taken");
+                throw new IllegalStateException("Phone number been taken");
             }
             therapist.setPhoneNumber(phoneNumber);
         }

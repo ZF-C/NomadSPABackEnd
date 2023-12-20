@@ -1,10 +1,12 @@
 package com.nomadspa.backend.Customer;
+import com.nomadspa.backend.SpaService.SpaService;
 import jakarta.persistence.*;
-
+import java.util.Set;
+import java.security.Provider;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name = "customer")
 public class Customer {
     //根据therapist文件夹下的Therapist.java文件，创建Customer类
     @Id
@@ -21,6 +23,9 @@ public class Customer {
     private String name;
     private String phoneNumber;
     private String membershipId;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<SpaService> services;
 
     public Customer(String name, String phoneNumber) {
         this.name = name;
