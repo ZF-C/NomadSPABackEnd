@@ -19,13 +19,13 @@ public class SpaServiceCatalog {
     )
     private Long spaServiceCatalogId;
     private String serviceName;
-    private LocalTime duration;
+    private Integer duration;
     private double price;
     private double commission;
     @OneToMany(mappedBy = "spaServiceCatalog")
     private Set<SpaServiceCatalog> spaServiceCatalogs;
 
-    public SpaServiceCatalog(Long spaServiceCatalogId, String serviceName, LocalTime duration, double price, double commission) {
+    public SpaServiceCatalog(Long spaServiceCatalogId, String serviceName, Integer duration, double price, double commission) {
         this.spaServiceCatalogId = spaServiceCatalogId;
         this.serviceName = serviceName;
         this.duration = duration;
@@ -33,7 +33,7 @@ public class SpaServiceCatalog {
         this.commission = commission;
     }
 
-    public SpaServiceCatalog(String serviceName, LocalTime duration, double price, double commission) {
+    public SpaServiceCatalog(String serviceName, Integer duration, double price, double commission) {
         this.serviceName = serviceName;
         this.duration = duration;
         this.price = price;
@@ -60,11 +60,11 @@ public class SpaServiceCatalog {
         this.serviceName = serviceName;
     }
 
-    public LocalTime getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(LocalTime duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 

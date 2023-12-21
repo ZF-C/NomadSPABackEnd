@@ -31,7 +31,7 @@ public class SpaServiceCatalogController{
                               @RequestParam(required = false) String name,
                               @RequestParam(required = false) double commission,
                               @RequestParam(required = false) double price,
-                                        @RequestParam(required = false) LocalTime duration){
+                                        @RequestParam(required = false) Integer duration){
         SpaServiceCatalogService.updateSpaServiceCatalog(spaServiceCatalogId,name,price,commission,duration);
     }
 }

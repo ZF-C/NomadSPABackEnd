@@ -34,7 +34,7 @@ public class SpaServiceCatalogService {
         SpaServiceCatalogRepository.deleteById(spaServiceCatalogId);
     }
     @Transactional
-    public void updateSpaServiceCatalog(Long spaServiceCatalogId, String serviceName, Double price, Double commission,LocalTime duration) {
+    public void updateSpaServiceCatalog(Long spaServiceCatalogId, String serviceName, Double price, Double commission,Integer duration) {
         SpaServiceCatalog spaServiceCatalog = SpaServiceCatalogRepository.findById(spaServiceCatalogId).
                 orElseThrow(() -> new IllegalStateException(
                         "Spa Service with id" + spaServiceCatalogId + "does not exist"));

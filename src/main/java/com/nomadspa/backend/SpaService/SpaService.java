@@ -36,15 +36,20 @@ public class SpaService {
     private SpaServiceCatalog spaServiceCatalog;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    //增加paymentmethod
+    private String paymentMethod;
 
 
 
-    public SpaService(Customer customer, Therapist therapist, SpaServiceCatalog spaServiceCatalog, LocalDateTime startTime, LocalDateTime endTime) {
+
+
+    public SpaService(Customer customer, Therapist therapist, SpaServiceCatalog spaServiceCatalog, LocalDateTime startTime, LocalDateTime endTime, String paymentMethod) {
         this.customer = customer;
         this.therapist = therapist;
         this.spaServiceCatalog = spaServiceCatalog;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.paymentMethod = paymentMethod;
     }
 
     public SpaService() {
@@ -99,6 +104,14 @@ public class SpaService {
         this.endTime = endTime;
     }
 
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
     @Override
     public String toString() {
         return "SpaService{" +
@@ -108,6 +121,7 @@ public class SpaService {
                 ", spaServiceCatalog=" + spaServiceCatalog +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
+                ", paymentMethod='" + paymentMethod + '\'' +
                 '}';
     }
 }
