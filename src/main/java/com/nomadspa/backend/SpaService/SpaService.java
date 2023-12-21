@@ -1,6 +1,7 @@
 package com.nomadspa.backend.SpaService;
 import com.nomadspa.backend.Customer.Customer;
 import com.nomadspa.backend.SpaServiceCatalog.SpaServiceCatalog;
+import com.nomadspa.backend.Therapist.Therapist;
 import jakarta.persistence.*;
 import java.util.Set;
 import java.security.Provider;
@@ -28,7 +29,7 @@ public class SpaService {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "therapist_id")
-    private Customer therapist;
+    private Therapist therapist;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "spa_service_catalog_id")
@@ -38,7 +39,7 @@ public class SpaService {
 
 
 
-    public SpaService(Customer customer, Customer therapist, SpaServiceCatalog spaServiceCatalog, LocalDateTime startTime, LocalDateTime endTime) {
+    public SpaService(Customer customer, Therapist therapist, SpaServiceCatalog spaServiceCatalog, LocalDateTime startTime, LocalDateTime endTime) {
         this.customer = customer;
         this.therapist = therapist;
         this.spaServiceCatalog = spaServiceCatalog;
@@ -66,11 +67,11 @@ public class SpaService {
         this.customer = customer;
     }
 
-    public Customer getTherapist() {
+    public Therapist getTherapist() {
         return therapist;
     }
 
-    public void setTherapist(Customer therapist) {
+    public void setTherapist(Therapist therapist) {
         this.therapist = therapist;
     }
 
