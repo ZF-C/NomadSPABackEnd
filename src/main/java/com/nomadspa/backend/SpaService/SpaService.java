@@ -16,6 +16,7 @@ public class SpaService {
             sequenceName = "spaService_sequence",
             allocationSize = 1
     )
+
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "spaService_sequence"
@@ -38,6 +39,9 @@ public class SpaService {
     private LocalDateTime endTime;
     //增加paymentmethod
     private String paymentMethod;
+//    private double cardpayment;
+//    private double cashpayment;
+//    private double mambershippayment;
 
 
 

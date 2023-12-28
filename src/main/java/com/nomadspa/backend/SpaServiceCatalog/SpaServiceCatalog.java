@@ -1,4 +1,5 @@
 package com.nomadspa.backend.SpaServiceCatalog;
+import com.nomadspa.backend.SpaService.SpaService;
 import jakarta.persistence.*;
 
 import java.time.LocalTime;
@@ -23,7 +24,7 @@ public class SpaServiceCatalog {
     private double price;
     private double commission;
     @OneToMany(mappedBy = "spaServiceCatalog")
-    private Set<SpaServiceCatalog> spaServiceCatalogs;
+    private Set<SpaService> services;
 
     public SpaServiceCatalog(Long spaServiceCatalogId, String serviceName, Integer duration, double price, double commission) {
         this.spaServiceCatalogId = spaServiceCatalogId;

@@ -1,8 +1,9 @@
 package com.nomadspa.backend.Therapist;
 
 
+import com.nomadspa.backend.SpaService.SpaService;
 import jakarta.persistence.*;
-
+import java.util.Set;
 import java.time.LocalDate;
 
 @Entity
@@ -22,6 +23,9 @@ public class Therapist {
     private String name;
     private String phoneNumber;
     private LocalDate dob;
+    @OneToMany(mappedBy = "therapist")
+    private Set<SpaService> services;
+
 
     public Therapist(Long id) {
         this.id = id;
@@ -44,11 +48,11 @@ public class Therapist {
 
     }
 
-    public Long getId() {
+    public Long getTherapistId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setTherapistId(Long id) {
         this.id = id;
     }
 
@@ -85,5 +89,7 @@ public class Therapist {
                 ", dob=" + dob +
                 '}';
     }
+
+
 }
 

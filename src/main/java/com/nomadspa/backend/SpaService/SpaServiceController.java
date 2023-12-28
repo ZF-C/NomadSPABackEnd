@@ -12,11 +12,16 @@ public class SpaServiceController {
         SpaServiceService = spaServiceService;
     }
     @GetMapping
-    public List<SpaService> getSpaService(){
+    public List<SpaServiceDTO> getSpaService(){
         return SpaServiceService.getSpaService();
     }
+    @GetMapping(path = "{customerId}")
+    public List<SpaServiceDTO> getSpaServiceByCustomer(@PathVariable("customerId") Long customerId){
+        return SpaServiceService.getSpaServiceByCustomer(customerId);
+    }
+
     @PostMapping
-    public void registerNewSpaService(@RequestBody SpaService spaService){
+    public void registerNewSpaService(@RequestBody SpaServiceDTO spaService){
         SpaServiceService.addNewSpaService(spaService);
     }
     @DeleteMapping(path = "{spaServiceId}")

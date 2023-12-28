@@ -2,6 +2,7 @@ package com.nomadspa.backend.Therapist;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 import static java.time.Month.*;
 
 @Configuration
+@Profile("dev")
 public class TherapistConfig {
     @Bean
     CommandLineRunner commandLineRunner(
@@ -25,8 +27,6 @@ public class TherapistConfig {
             repository.saveAll(
                     List.of(Jayson,Jacob)
             );
-
         };
-
     }
 }
