@@ -7,6 +7,9 @@ public class SpaServiceDTO {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String paymentMethod;
+    private double cardPayment;
+    private double cashPayment;
+    private double memberShipPayment;
 
 
 
@@ -57,4 +60,29 @@ public class SpaServiceDTO {
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
+
+    public double getCardPayment() {
+        return cardPayment;
+    }
+
+    public void setCardPayment(double cardPayment) {
+        this.cardPayment = cardPayment;
+    }
+
+    public double getCashPayment() {
+        return cashPayment;
+    }
+
+    public void setCashPayment(double cashPayment) {
+        this.cashPayment = cashPayment;
+    }
+
+    public double getMemberShipPayment() {
+        return memberShipPayment;
+    }
+
+    public void setMemberShipPayment(double memberShipPayment) {
+        this.memberShipPayment = memberShipPayment;
+    }
+
 }

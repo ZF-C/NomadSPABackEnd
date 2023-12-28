@@ -39,7 +39,10 @@ public class SpaServiceService {
                 new IllegalStateException("therapist with id " + spaServiceDTO.getTherapistId() + " does not exists"));
         SpaServiceCatalog spaServiceCatalog = spaServiceCatalogRepository.findById(spaServiceDTO.getSpaServiceCatalogId()).orElseThrow(()->
                 new IllegalStateException("spaServiceCatalog with id " + spaServiceDTO.getSpaServiceCatalogId() + " does not exists"));
-        SpaService spaService = new SpaService(customer, therapist, spaServiceCatalog, spaServiceDTO.getStartTime(), spaServiceDTO.getEndTime(), spaServiceDTO.getPaymentMethod());
+
+        SpaService spaService = new SpaService(customer, therapist, spaServiceCatalog,
+                spaServiceDTO.getStartTime(), spaServiceDTO.getEndTime(), spaServiceDTO.getPaymentMethod(),
+                spaServiceDTO.getCardPayment(), spaServiceDTO.getCashPayment(), spaServiceDTO.getMemberShipPayment());
         SpaServiceRepository.save(spaService);
     }
     public void deleteSpaService(Long spaServiceId) {

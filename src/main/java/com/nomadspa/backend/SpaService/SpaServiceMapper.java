@@ -34,6 +34,9 @@ public class SpaServiceMapper {
         dto.setStartTime(spaService.getStartTime());
         dto.setEndTime(spaService.getEndTime());
         dto.setPaymentMethod(spaService.getPaymentMethod());
+        dto.setCardPayment(spaService.getCardPayment());
+        dto.setCashPayment(spaService.getCashPayment());
+        dto.setMemberShipPayment(spaService.getMemberShipPayment());
         return dto;
     }
 }
