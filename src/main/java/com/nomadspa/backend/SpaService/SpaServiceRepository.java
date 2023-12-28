@@ -18,6 +18,10 @@ public interface SpaServiceRepository extends JpaRepository<SpaService,Long>{
     //返回某个时间段内的所有预约
     List<SpaService> findByStartTimeBetween(LocalDateTime start, LocalDateTime end);
 
+    //返回某个按摩师某天的所有预约
+    @Query("SELECT s FROM SpaService s join s.therapist t ON t.id = :therapistId WHERE s.startTime BETWEEN :start AND :end")
+    List<SpaService> findByTherapistAndStartTimeBetween(@Param("therapistId")Long therapistId, LocalDateTime start, LocalDateTime end);
+
 
 
 }

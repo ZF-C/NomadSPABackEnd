@@ -25,7 +25,7 @@ public class TherapistService {
         Optional<Therapist> therapistByPhoneNumber = TherapistRepository
                 .findTherapistByPhoneNumber(therapist.getPhoneNumber());
         if(therapistByPhoneNumber.isPresent()){
-            throw new IllegalStateException("Phone number Taken");
+            throw new IllegalStateException("Therapist Phone number Taken");
         }
         TherapistRepository.save(therapist);
     }

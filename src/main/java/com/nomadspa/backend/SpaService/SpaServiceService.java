@@ -8,6 +8,7 @@ import com.nomadspa.backend.Therapist.TherapistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -30,6 +31,14 @@ public class SpaServiceService {
     }
     public List<SpaServiceDTO> getSpaServiceByCustomer(Long customerId){
         return SpaServiceMapper.toDTOList(SpaServiceRepository.findSpaServiceByCustomer(customerId));
+    }
+
+    public List<SpaServiceDTO> getStartTimeBetween(LocalDateTime start, LocalDateTime end){
+        return SpaServiceMapper.toDTOList(SpaServiceRepository.findByStartTimeBetween(start,end));
+    }
+
+    public List<SpaServiceDTO> getSpaServiceByTherapistAndTime(Long therapistId, LocalDateTime start, LocalDateTime end){
+        return SpaServiceMapper.toDTOList(SpaServiceRepository.findByTherapistAndStartTimeBetween(therapistId,start,end));
     }
 
     public void addNewSpaService(SpaServiceDTO spaServiceDTO){

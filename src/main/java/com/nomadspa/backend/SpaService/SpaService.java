@@ -37,24 +37,11 @@ public class SpaService {
     private SpaServiceCatalog spaServiceCatalog;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    //增加paymentmethod
+    //增加payment method
     private String paymentMethod;
     private double cardPayment;
     private double cashPayment;
     private double memberShipPayment;
-
-
-
-
-
-    public SpaService(Customer customer, Therapist therapist, SpaServiceCatalog spaServiceCatalog, LocalDateTime startTime, LocalDateTime endTime, String paymentMethod) {
-        this.customer = customer;
-        this.therapist = therapist;
-        this.spaServiceCatalog = spaServiceCatalog;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.paymentMethod = paymentMethod;
-    }
 
     public SpaService(Customer customer, Therapist therapist, SpaServiceCatalog spaServiceCatalog, LocalDateTime startTime, LocalDateTime endTime, String paymentMethod, double cardPayment, double cashPayment, double memberShipPayment) {
         this.customer = customer;

@@ -1,6 +1,8 @@
 package com.nomadspa.backend.SpaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -18,6 +20,17 @@ public class SpaServiceController {
     @GetMapping(path = "{customerId}")
     public List<SpaServiceDTO> getSpaServiceByCustomer(@PathVariable("customerId") Long customerId){
         return SpaServiceService.getSpaServiceByCustomer(customerId);
+    }
+    @GetMapping(path = "{start}/{end}")
+    public List<SpaServiceDTO> getStartTimeBetween(@PathVariable("start") LocalDateTime start, @PathVariable("end") LocalDateTime end){
+        return SpaServiceService.getStartTimeBetween(start,end);
+    }
+    @GetMapping(path = "{therapistId}/{start}/{end}")
+    public List<SpaServiceDTO> getSpaServiceByTherapistAndTime(
+            @PathVariable("therapistId") Long therapistId,
+            @PathVariable("start") LocalDateTime start,
+            @PathVariable("end") LocalDateTime end){
+        return SpaServiceService.getSpaServiceByTherapistAndTime(therapistId,start,end);
     }
 
     @PostMapping
