@@ -29,6 +29,7 @@ public class TherapistService {
         }
         TherapistRepository.save(therapist);
     }
+
     public void deleteTherapist(Long therapistID) {
         boolean exists = TherapistRepository.existsById(therapistID);
         if(!exists){
@@ -42,7 +43,8 @@ public class TherapistService {
     public void updateTherapist(Long therapistId, String name, String phoneNumber) {
         Therapist therapist = TherapistRepository.findById(therapistId).
                 orElseThrow(()->new IllegalStateException(
-                        "student with id" + therapistId + "does not exist"));
+                        "Therapist with id" + therapistId + "does not exist"));
+
 
         if(name != null && !name.isEmpty() && !Objects.equals(therapist.getName(),name)){
             therapist.setName(name);
@@ -54,8 +56,22 @@ public class TherapistService {
             }
             therapist.setPhoneNumber(phoneNumber);
         }
+        TherapistRepository.save(therapist);
+    }
+    public void updateTherapistState(Long therapistId,Boolean active_or_not){
+        Therapist therapist = TherapistRepository.findById(therapistId).
+                orElseThrow(()->new IllegalStateException(
+                        "Therapist with id" + therapistId + "does not exist"));
+        therapist.setActiveOrNot(active_or_not);
+        TherapistRepository.save(therapist);
+    }
 
-
+    public void updateTherapistSequence(Long therapistId,Integer sequenceNumber){
+        Therapist therapist = TherapistRepository.findById(therapistId).
+                orElseThrow(()->new IllegalStateException(
+                        "Therapist with id" + therapistId + "does not exist"));
+        therapist.setSequenceNumber(sequenceNumber);
+        TherapistRepository.save(therapist);
     }
 
 }

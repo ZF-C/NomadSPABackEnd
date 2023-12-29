@@ -34,6 +34,16 @@ public class TherapistController {
         TherapistService.updateTherapist(therapistId,name,phoneNumber);
 
     }
+    @PutMapping(path = "{therapistId}/state")
+    public void updateTherapistState(@PathVariable("therapistId") Long therapistId,
+                                     @RequestParam(required = false) Boolean active_or_not){
+        TherapistService.updateTherapistState(therapistId,active_or_not);
+    }
+    @PutMapping(path = "{therapistId}/sequence")
+    public void updateTherapistSequence(@PathVariable("therapistId") Long therapistId,
+                                        @RequestParam(required = false) Integer sequenceNumber){
+        TherapistService.updateTherapistSequence(therapistId,sequenceNumber);
+    }
 
 
 

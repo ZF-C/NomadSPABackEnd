@@ -23,6 +23,8 @@ public class Therapist {
     private String name;
     private String phoneNumber;
     private LocalDate dob;
+    private Boolean activeOrNot;
+    private Integer sequenceNumber;
     @OneToMany(mappedBy = "therapist")
     private Set<SpaService> services;
 
@@ -43,6 +45,9 @@ public class Therapist {
         this.phoneNumber = phoneNumber;
         this.dob = dob;
     }
+
+
+
 
     public Therapist() {
 
@@ -78,6 +83,22 @@ public class Therapist {
 
     public void setDob(LocalDate dob) {
         this.dob = dob;
+    }
+
+    public Boolean getActiveOrNot() {
+        return activeOrNot;
+    }
+
+    public void setActiveOrNot(Boolean activeOrNot) {
+        this.activeOrNot = activeOrNot;
+    }
+
+    public Integer getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
     }
 
     @Override
